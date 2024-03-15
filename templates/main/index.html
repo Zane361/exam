@@ -1,0 +1,317 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>Space Dynamic - SEO HTML5 Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'main/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'main/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/templatemo-space-dynamic.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/animated.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/owl.css' %}">
+
+    <style>
+      .blank-space {
+        width: 256px; /* Adjust width as needed */
+        height: 1px; /* Adjust height as needed */
+        background-color: transparent; /* Optional: make the space transparent */
+        display: inline-block; /* Ensure element respects width and height */
+      }
+    </style>
+<!--
+    
+TemplateMo 562 Space Dynamic
+
+https://templatemo.com/tm-562-space-dynamic
+
+-->
+  </head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="{% url 'main:index' %}" class="logo">
+              <h4>Najot <span>Ta'lim</span></h4>
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li class="scroll-to-section"><a href="{% url 'main:index' %}" class="active">Asosiy Qism</a></li>
+              <li class="scroll-to-section"><a href="{% url 'main:about_us' %}">Biz Haqimizda</a></li>
+              <li class="scroll-to-section"><a href="{% url 'main:service' %}">Xizmatlar</a></li>
+              <li class="scroll-to-section"><a href="{% url 'main:blog' %}">Blog</a></li>  
+              <li class="scroll-to-section"><div class="main-red-button"><a href="{% url 'main:contact' %}">Bog'lanish</a></div></li> 
+            </ul>        
+            <a class='menu-trigger'>
+                <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+
+  <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-6 align-self-center">
+              <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+                <h6>{{home.subtitle}}</h6>
+                <h2>{{home.title}}</h2>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                <img src="{% static 'main/images/banner-right-image.png' %}" alt="team meeting">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="about" class="about-us section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="left-image wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+            <img src="{% static 'main/images/about-left-image.png' %}" alt="person graphic">
+          </div>
+        </div>
+        <div class="col-lg-8 align-self-center">
+          <div class="services">
+            <div class="row">
+              {% for about in about_us|slice:"4" %}
+              <div class="col-lg-6">
+                <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
+                  <div class="icon">
+                    <img src="{{about.icon.url}}" alt="reporting">
+                  </div>
+                  <div class="right-text">
+                    <h4>{{about.title}}</h4>
+                    <p>{{about.body}}</p>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+            <div class="main-blue-button">
+              <a href="{% url 'main:about_us' %}">Ko'proq ko'rish</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="services" class="our-services section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 align-self-center  wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s">
+          <div class="left-image">
+            <img src="{% static 'main/images/services-left-image.png' %}" alt="">
+          </div>
+        </div>
+        <div class="col-lg-6 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s">
+          <div class="section-heading">
+            <h2>{{service.title}}</h2>
+            <p>{{service.body}}</p>
+            <div class="main-blue-button">
+              <a href="{% url 'main:service' %}">Ko'proq ko'rish</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="portfolio" class="our-portfolio section">
+    <div class="container">
+      <div class="row">
+        {% for title in service.service_title %}
+        <div class="col-lg-3 col-sm-6">
+          <a href="#">
+            <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.3s">
+              <div class="hidden-content">
+                <h4>{{title}}</h4>
+                <p class="blank-space"></p>
+              </div>
+              <div class="showed-content">
+                <img src="{% static 'main/images/portfolio-image.png' %}" alt="">
+              </div>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+
+  <div id="blog" class="our-blog section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.25s">
+          <div class="section-heading">
+            <h2><em>Najot Ta'lim</em> markazidagi <span>yangiliklarni</span> ko'rib chiqing!</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
+          <div class="left-image">
+            <a href="#"><img src="{% static 'main/images/najot-talim.png' %}" alt="Workspace Desktop"></a>
+            <div class="info">
+              <div class="inner-content">
+                <ul>
+                  <li><i class="fa fa-users"></i> Toshkent</li>
+                  <li><i class="fa fa-users"></i> Farg'ona</li>
+                  <li><i class="fa fa-users"></i> Xorazm</li>
+                </ul>
+                <a href="https://najottalim.uz/"><h4>Najot Talim</h4></a>
+                <p>
+                  Hozirgi kungacha Najot Ta'limning 3 ta viloyatda filiali bor
+                </p>
+                <div class="main-blue-button">
+                  <a href="{% url 'main:blog' %}">Ko'proq ko'rish</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
+          <div class="right-list">
+            <ul>
+              {% for bl in blogs|slice:"3" %}
+              <li>
+                <div class="left-content align-self-center">
+                  <span><i class="fa fa-calendar"></i> {{bl.created_at}}</span>
+                  <a href="#"><h4>{{bl.title}}</h4></a>
+                  <p>{{bl.body}}</p>
+                </div>
+                <div class="right-image">
+                  <a href="#"><img src="{{bl.image.url}}" alt=""></a>
+                </div>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="contact" class="contact-us section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 align-self-center wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.25s">
+          <div class="section-heading">
+            <h2>O'zingizni qiziqtirgan savollarni bemalol berishingiz mumkin!</h2>
+            <div class="phone-info">
+              <h4>Biror savolingiz bo'lsa bog'laning: <span><i class="fa fa-phone"></i> <a href="#">+998 99 366 00 11</a></span></h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
+          <form id="contact" action="" method="post">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-lg-6">
+                <fieldset>
+                  <input type="name" name="first_name" id="name" placeholder="Ism" autocomplete="on" required>
+                </fieldset>
+              </div>
+              <div class="col-lg-6">
+                <fieldset>
+                  <input type="surname" name="last_name" id="surname" placeholder="Familiya" autocomplete="on" required>
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <input type="tel" name="phone_number" id="email" placeholder="Telefon raqam">
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <input type="email" name="email" id="email" placeholder="Email">
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <textarea name="message" type="text" class="form-control" id="message" placeholder="Xabar" required=""></textarea>  
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <button type="submit" id="form-submit" class="main-button ">Xabarni yuborish</button>
+                </fieldset>
+              </div>
+            </div>
+            <div class="contact-dec">
+              <img src="{% static 'main/images/contact-decoration.png' %}" alt="">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
+          <p>© Copyright 2024
+          
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Scripts -->
+  <script src="{% static 'main/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'main/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'main/js/owl-carousel.js' %}"></script>
+  <script src="{% static 'main/js/animation.js' %}"></script>
+  <script src="{% static 'main/js/imagesloaded.js' %}"></script>
+  <script src="{% static 'main/js/templatemo-custom.js' %}"></script>
+
+</body>
+</html>

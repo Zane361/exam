@@ -1,0 +1,57 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+
+<div id="blog" class="our-blog section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.25s">
+        <div class="section-heading">
+          <h2><em>Najot Ta'lim</em> markazidagi <span>yangiliklarni</span> ko'rib chiqing!</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
+        <div class="left-image">
+          <a href="#"><img src="{% static 'main/images/najot-talim.png' %}" alt="Workspace Desktop"></a>
+          <div class="info">
+            <div class="inner-content">
+              <ul>
+                <li><i class="fa fa-users"></i> Toshkent</li>
+                <li><i class="fa fa-users"></i> Farg'ona</li>
+                <li><i class="fa fa-users"></i> Xorazm</li>
+              </ul>
+              <a href="https://najottalim.uz/"><h4>Najot Talim</h4></a>
+              <p>
+                Hozirgi kungacha Najot Ta'limning 3 ta viloyatda filiali bor
+              </p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.25s">
+        <div class="right-list">
+          <ul>
+            {% for bl in blogs %}
+            <li>
+              <div class="left-content align-self-center">
+                <span><i class="fa fa-calendar"></i> {{bl.created_at}}</span>
+                <a href="#"><h4>{{bl.title}}</h4></a>
+                <p>{{bl.body}}</p>
+              </div>
+              <div class="right-image">
+                <a href="#"><img src="{{bl.image.url}}" alt=""></a>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

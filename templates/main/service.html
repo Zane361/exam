@@ -1,0 +1,45 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+
+<div id="services" class="our-services section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 align-self-center  wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s">
+        <div class="left-image">
+          <img src="{% static 'main/images/services-left-image.png' %}" alt="">
+        </div>
+      </div>
+      <div class="col-lg-6 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s">
+        <div class="section-heading">
+          <h2>{{service.title}}</h2>
+          <p>{{service.body}}</p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="portfolio" class="our-portfolio section">
+  <div class="container">
+    <div class="row">
+      {% for title in service.service_title %}
+      <div class="col-lg-3 col-sm-6">
+        <a href="#">
+          <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.3s">
+            <div class="hidden-content">
+              <h4>{{title}}</h4>
+              <p style="width: 256px; height: 1px; background-color: transparent; display: inline-block;"></p>
+            </div>
+            <div class="showed-content">
+              <img src="{% static 'main/images/portfolio-image.png' %}" alt="">
+            </div>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}
